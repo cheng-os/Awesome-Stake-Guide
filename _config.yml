@@ -1,0 +1,124 @@
+name: Awesome Stake Guide 2026
+description: 🚀 加密货币娱乐与体育博彩全攻略 | Stake推广链接 | 币安邀请链接 | Exness返佣 | 最全的Stake注册教程、VIP策略、体育博彩指南
+url: https://github.com/yourusername/Awesome-Stake-Guide
+baseurl: /Awesome-Stake-Guide
+
+# SEO优化配置
+seo:
+  title: "Awesome Stake Guide 2026 - 加密货币娱乐与体育博彩全攻略"
+  description: "2026年最全Stake加密货币博彩指南，包含Stake推广链接stake.com/?c=hlw、币安邀请链接、Exness返佣链接。提供Stake注册教程、VIP策略、体育博彩、USDT充值等完整攻略。"
+  keywords: 
+    - "Stake推广链接"
+    - "币安邀请链接" 
+    - "Exness返佣"
+    - "加密货币博彩"
+    - "Stake注册"
+    - "USDT充值"
+    - "体育博彩"
+    - "加密货币交易所"
+    - "外汇交易返佣"
+    - "Stake VIP策略"
+    - "2026世界杯博彩"
+    - "比特币博彩"
+    - "以太坊博彩"
+    - "在线博彩平台"
+    - "加密货币娱乐"
+    - "体育投注指南"
+    - "博彩平台返佣"
+    - "最高返佣比例"
+    - "手续费折扣"
+    - "Stake攻略"
+    - "币安教程"
+    - "Exness代理"
+  author: "Stake Guide Expert"
+  image: "/images/og-image.jpg"
+  robots: "index, follow"
+
+# 社交媒体优化
+social:
+  twitter:
+    username: "stake_guide"
+    card: "summary_large_image"
+  facebook:
+    app_id: ""
+    publisher: ""
+  og:
+    title: "Awesome Stake Guide 2026 - Stake推广链接 | 币安邀请链接"
+    description: "最全的Stake加密货币博彩指南，包含推广链接、返佣代码、VIP策略等"
+    type: "website"
+    url: "https://github.com/yourusername/Awesome-Stake-Guide"
+    image: "/images/og-image.jpg"
+    locale: "zh_CN"
+
+# 推广链接配置
+promo_links:
+  stake:
+    url: "https://stake.com/?c=hlw"
+    code: "hlw"
+    description: "全球顶级加密娱乐平台，使用代码hlw激活VIP"
+  binance:
+    url: "https://www.bsmkweb.cc/register?ref=CHENGX"
+    code: "CHENGX"
+    description: "全球最大加密货币交易所，手续费折扣"
+  exness:
+    url: "https://one.exnessonelink.com/a/xpg10f83pt"
+    code: "xpg10f83pt"
+    description: "全球领先外汇券商，最高返佣比例"
+
+# 仓库配置
+repository:
+  topics:
+    - "stake"
+    - "cryptocurrency"
+    - "casino"
+    - "sports-betting"
+    - "binance"
+    - "exness"
+    - "crypto-gambling"
+    - "usdt"
+    - "bitcoin"
+    - "ethereum"
+    - "forex"
+    - "affiliate-marketing"
+    - "crypto-guide"
+    - "2026-world-cup"
+    - "vip-strategy"
+    - "crypto-casino"
+    - "sports-betting-guide"
+  license: "MIT"
+  private: false
+
+# 构建配置
+markdown: kramdown
+highlighter: rouge
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-feed
+
+# 排除文件
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - gemfiles/
+  - README.md
+  - LICENSE
+
+# 包含文件
+include:
+  - _pages
+  - _posts
+  - _data
+
+# 分页配置
+paginate: 10
+paginate_path: "/page:num/"
+
+# 语法高亮
+syntax_highlighter: rouge
+syntax_highlighter_opts:
+  block:
+    line_numbers: false
