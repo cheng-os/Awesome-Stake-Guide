@@ -35,25 +35,25 @@ jobs:
         <?xml version="1.0" encoding="UTF-8"?>
         <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
           <url>
-            <loc>https://cheng-os.github.io/Awesome-Stake-Guide/</loc>
+            <loc>https://${{ env.GITHUB_USERNAME }}.github.io/Awesome-Stake-Guide/</loc>
             <lastmod>${{ github.event.head_commit.timestamp }}</lastmod>
             <changefreq>daily</changefreq>
             <priority>1.0</priority>
           </url>
           <url>
-            <loc>https://cheng-os.github.io/Awesome-Stake-Guide/stake-promo</loc>
+            <loc>https://${{ env.GITHUB_USERNAME }}.github.io/Awesome-Stake-Guide/stake-promo</loc>
             <lastmod>${{ github.event.head_commit.timestamp }}</lastmod>
             <changefreq>weekly</changefreq>
             <priority>0.8</priority>
           </url>
           <url>
-            <loc>https://cheng-os.github.io/Awesome-Stake-Guide/binance-tutorial</loc>
+            <loc>https://${{ env.GITHUB_USERNAME }}.github.io/Awesome-Stake-Guide/binance-tutorial</loc>
             <lastmod>${{ github.event.head_commit.timestamp }}</lastmod>
             <changefreq>weekly</changefreq>
             <priority>0.8</priority>
           </url>
           <url>
-            <loc>https://cheng-os.github.io/Awesome-Stake-Guide/exness-review</loc>
+            <loc>https://${{ env.GITHUB_USERNAME }}.github.io/Awesome-Stake-Guide/exness-review</loc>
             <lastmod>${{ github.event.head_commit.timestamp }}</lastmod>
             <changefreq>weekly</changefreq>
             <priority>0.8</priority>
@@ -99,7 +99,7 @@ jobs:
         Disallow: /*.json$
         
         # 站点地图
-        Sitemap: https://cheng-os.github.io/Awesome-Stake-Guide/sitemap.xml
+        Sitemap: https://${{ env.GITHUB_USERNAME }}.github.io/Awesome-Stake-Guide/sitemap.xml
         EOF
         
     - name: 生成SEO优化的HTML文件
@@ -206,7 +206,7 @@ jobs:
     - name: 通知搜索引擎
       run: |
         # 通知Google索引
-        curl -X GET "https://www.google.com/ping?sitemap=https://cheng-os.github.io/Awesome-Stake-Guide/sitemap.xml"
+        curl -X GET "https://www.google.com/ping?sitemap=https://${{ env.GITHUB_USERNAME }}.github.io/Awesome-Stake-Guide/sitemap.xml"
         
         # 通知Bing索引
-        curl -X GET "https://www.bing.com/ping?sitemap=https://cheng-os.github.io/Awesome-Stake-Guide/sitemap.xml"
+        curl -X GET "https://www.bing.com/ping?sitemap=https://${{ env.GITHUB_USERNAME }}.github.io/Awesome-Stake-Guide/sitemap.xml"
