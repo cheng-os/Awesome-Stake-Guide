@@ -14,6 +14,7 @@
             --text-main: #24292f;
             --success-green: #2ea44f;
             --binance-gold: #f3ba2f;
+            --highlight-bg: #fffbdd;
         }
 
         body {
@@ -98,6 +99,16 @@
         .doc-card p { margin: 0; font-size: 14px; color: #57606a; line-height: 1.5; }
         .tag { font-size: 11px; background: #ddf4ff; color: #0969da; padding: 2px 8px; border-radius: 10px; font-weight: bold; margin-bottom: 10px; display: inline-block; }
 
+        .announcement {
+            background: var(--highlight-bg);
+            border: 1px solid var(--border-color);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            font-size: 14px;
+            color: #57606a;
+        }
+
         /* 响应式适配 */
         @media (max-width: 900px) {
             #sidebar { display: none; }
@@ -116,6 +127,13 @@
             <ul>
                 <li><a href="#intro">入门与避坑</a></li>
                 <li><a href="#security">安全与 KYC</a></li>
+            </ul>
+        </div>
+
+        <div class="nav-group">
+            <h3>💬 社区互动</h3>
+            <ul>
+                <li><a href="#community">Reddit 实时讨论</a></li>
             </ul>
         </div>
 
@@ -149,6 +167,25 @@
                 <a href="https://stake.com/?c=hlw" class="btn btn-stake"><i class="fa-solid fa-rocket"></i> 进入 Stake 官方入口</a>
                 <a href="https://www.bsmkweb.cc/register?ref=CHENGX" class="btn btn-binance"><i class="fa-solid fa-wallet"></i> 注册币安 (Binance) 买 U</a>
             </div>
+        </section>
+
+        <section class="section" id="community">
+            <h2>社区实时讨论与分析</h2>
+            <div class="announcement">
+                <i class="fa-solid fa-bullhorn"></i> <strong>最新动态：</strong> 我们在 Reddit 等社区会定期发布最新的赛事预测和平台福利讨论，欢迎点击下方链接查看详细对话。
+            </div>
+            
+            <a href="https://www.reddit.com/r/SoccerBetting/comments/1osgolb/comment/oap044s/" class="doc-card" target="_blank">
+                <span class="tag">欧冠分析</span>
+                <h4>曼城 vs 皇马 xG 大数据模型讨论 (Reddit)</h4>
+                <p>在 r/SoccerBetting 社区分享的关于欧冠巅峰战的详细数据拆解与投注逻辑。</p>
+            </a>
+
+            <a href="https://www.reddit.com/r/FreeCash/comments/1rup6ku/comment/oap0g7n/" class="doc-card" target="_blank">
+                <span class="tag">收益技巧</span>
+                <h4>Stake 奖励系统与 FreeCash 转化策略 (Reddit)</h4>
+                <p>探讨如何结合外部任务系统最大化 Stake 账户的收益与流水奖励。</p>
+            </a>
         </section>
 
         <section class="section" id="intro">
