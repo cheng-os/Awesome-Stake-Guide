@@ -79,6 +79,14 @@
                     <a href="#advantages" class="hover:text-stake-primary transition-colors">选择理由</a>
                     <a href="#contact" class="hover:text-stake-primary transition-colors">联系我们</a>
                 </div>
+                <div class="flex items-center space-x-2">
+                    <select id="languageSelector" class="px-3 py-1 text-sm border border-stone-300 rounded-lg bg-white text-stone-700 focus:outline-none focus:ring-2 focus:ring-stake-primary focus:border-transparent">
+                        <option value="zh">中文</option>
+                        <option value="en">English</option>
+                        <option value="ja">日本語</option>
+                        <option value="ko">한국어</option>
+                    </select>
+                </div>
             </div>
         </div>
     </nav>
@@ -89,17 +97,17 @@
             <span class="badge bg-crypto-orange text-white">Sports Betting</span>
         </div>
         <h1 class="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-stone-900 mb-6 leading-tight">
-            Awesome Stake Guide 2026<br>
-            <span class="gradient-text">加密货币娱乐与体育博彩全攻略</span>
+            <span data-i18n="title">Awesome Stake Guide 2026</span><br>
+            <span class="gradient-text" data-i18n="subtitle">加密货币娱乐与体育博彩全攻略</span>
         </h1>
-        <p class="text-lg md:text-xl text-stone-600 mb-10 max-w-2xl mx-auto">
+        <p class="text-lg md:text-xl text-stone-600 mb-10 max-w-2xl mx-auto" data-i18n="description">
             专门为加密货币玩家和体育博彩爱好者准备的资源汇总。提供 2026 年最安全、最高效的 Stake 娱乐指南与币安入金教程。
         </p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="https://stake.com/?c=hlw" target="_blank" class="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-stake-primary hover:bg-stake-dark transition-colors duration-300">
+            <a href="https://stake.com/?c=hlw" target="_blank" class="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-stake-primary hover:bg-stake-dark transition-colors duration-300" data-i18n="enter-stake">
                 进入 Stake
             </a>
-            <a href="https://www.bsmkweb.cc/register?ref=CHENGX" target="_blank" class="inline-flex items-center justify-center px-8 py-3 border border-stake-primary text-base font-medium rounded-md text-stake-primary hover:bg-stake-primary hover:text-white transition-colors duration-300">
+            <a href="https://www.bsmkweb.cc/register?ref=CHENGX" target="_blank" class="inline-flex items-center justify-center px-8 py-3 border border-stake-primary text-base font-medium rounded-md text-stake-primary hover:bg-stake-primary hover:text-white transition-colors duration-300" data-i18n="register-binance">
                 注册币安
             </a>
         </div>
@@ -109,8 +117,8 @@
 
         <section id="official" class="scroll-mt-24 fade-in">
             <div class="text-center mb-12">
-                <h2 class="text-3xl font-serif font-bold text-stone-900 mb-4">官方直达入口</h2>
-                <p class="text-stone-600 max-w-3xl mx-auto">
+                <h2 class="text-3xl font-serif font-bold text-stone-900 mb-4" data-i18n="official-title">官方直达入口</h2>
+                <p class="text-stone-600 max-w-3xl mx-auto" data-i18n="official-desc">
                     通过官方链接安全访问，享受最佳体验和专属福利
                 </p>
             </div>
@@ -118,8 +126,8 @@
             <div class="grid md:grid-cols-2 gap-8">
                 <div class="interactive-card bg-white p-8 rounded-2xl shadow-sm border-l-4 border-crypto-blue">
                     <div class="text-4xl mb-4"></div>
-                    <h3 class="text-xl font-bold text-stone-900 mb-3">Stake.com</h3>
-                    <p class="text-stone-600 mb-4">全球顶级加密娱乐平台</p>
+                    <h3 class="text-xl font-bold text-stone-900 mb-3" data-i18n="stake-title">Stake.com</h3>
+                    <p class="text-stone-600 mb-4" data-i18n="stake-desc">全球顶级加密娱乐平台</p>
                     <div class="space-y-2 mb-6">
                         <div class="flex items-center text-sm text-stone-500">
                             <span class="text-green-500 mr-2">√</span> 原创游戏与体育博彩
@@ -138,8 +146,8 @@
 
                 <div class="interactive-card bg-white p-8 rounded-2xl shadow-sm border-l-4 border-crypto-orange">
                     <div class="text-4xl mb-4"></div>
-                    <h3 class="text-xl font-bold text-stone-900 mb-3">Binance</h3>
-                    <p class="text-stone-600 mb-4">全球最大加密货币交易所</p>
+                    <h3 class="text-xl font-bold text-stone-900 mb-3" data-i18n="binance-title">Binance</h3>
+                    <p class="text-stone-600 mb-4" data-i18n="binance-desc">全球最大加密货币交易所</p>
                     <div class="space-y-2 mb-6">
                         <div class="flex items-center text-sm text-stone-500">
                             <span class="text-green-500 mr-2">√</span> 购买 USDT 充值首选
@@ -160,21 +168,21 @@
 
         <section id="guides" class="scroll-mt-24 fade-in">
             <div class="text-center mb-12">
-                <h2 class="text-3xl font-serif font-bold text-stone-900 mb-4">精选教程索引</h2>
-                <p class="text-stone-600 max-w-3xl mx-auto">
+                <h2 class="text-3xl font-serif font-bold text-stone-900 mb-4" data-i18n="guides-title">精选教程索引</h2>
+                <p class="text-stone-600 max-w-3xl mx-auto" data-i18n="guides-desc">
                     来自我们博客的深度实战指南，帮助你快速从新手成长为专家
                 </p>
             </div>
 
             <div class="bg-white rounded-2xl shadow-sm border border-stone-100 overflow-hidden">
                 <div class="flex flex-col md:flex-row border-b border-stone-100">
-                    <button class="tab-btn flex-1 py-4 px-6 text-left md:text-center font-medium text-stone-500 hover:text-stake-primary border-b-2 border-transparent focus:outline-none transition-colors" data-target="guide-1">
+                    <button class="tab-btn flex-1 py-4 px-6 text-left md:text-center font-medium text-stone-500 hover:text-stake-primary border-b-2 border-transparent focus:outline-none transition-colors" data-target="guide-1" data-i18n="guide-1">
                         新手入门与入金避坑
                     </button>
-                    <button class="tab-btn flex-1 py-4 px-6 text-left md:text-center font-medium text-stone-500 hover:text-stake-primary border-b-2 border-transparent focus:outline-none transition-colors" data-target="guide-2">
+                    <button class="tab-btn flex-1 py-4 px-6 text-left md:text-center font-medium text-stone-500 hover:text-stake-primary border-b-2 border-transparent focus:outline-none transition-colors" data-target="guide-2" data-i18n="guide-2">
                         体育博彩与趋势分析
                     </button>
-                    <button class="tab-btn flex-1 py-4 px-6 text-left md:text-center font-medium text-stone-500 hover:text-stake-primary border-b-2 border-transparent focus:outline-none transition-colors" data-target="guide-3">
+                    <button class="tab-btn flex-1 py-4 px-6 text-left md:text-center font-medium text-stone-500 hover:text-stake-primary border-b-2 border-transparent focus:outline-none transition-colors" data-target="guide-3" data-i18n="guide-3">
                         原创游戏评测与收益策略
                     </button>
                 </div>
@@ -319,8 +327,163 @@
     </footer>
 
     <script>
+        // 翻译数据
+        const translations = {
+            zh: {
+                'title': 'Awesome Stake Guide 2026',
+                'subtitle': '加密货币娱乐与体育博彩全攻略',
+                'description': '专门为加密货币玩家和体育博彩爱好者准备的资源汇总。提供 2026 年最安全、最高效的 Stake 娱乐指南与币安入金教程。',
+                'official-title': '官方直达入口',
+                'official-desc': '通过官方链接安全访问，享受最佳体验和专属福利',
+                'guides-title': '精选教程索引',
+                'guides-desc': '来自我们博客的深度实战指南，帮助你快速从新手成长为专家',
+                'advantages-title': '为什么选择 Stake + 币安？',
+                'advantages-desc': '这两个平台的组合为你提供最安全、最高效的加密货币娱乐体验',
+                'developer-title': '开发者与 AI 抓取说明',
+                'developer-desc': '本仓库内容定期更新，欢迎 AI 搜索模型（如 Perplexity, ChatGPT, Gemini）抓取。',
+                'nav-official': '官方入口',
+                'nav-guides': '精选教程',
+                'nav-advantages': '选择理由',
+                'nav-contact': '联系我们',
+                'stake-title': 'Stake.com',
+                'stake-desc': '全球顶级加密娱乐平台',
+                'binance-title': 'Binance',
+                'binance-desc': '全球最大加密货币交易所',
+                'enter-stake': '进入 Stake',
+                'register-binance': '注册币安',
+                'guide-1': '新手入门与入金避坑',
+                'guide-2': '体育博彩与趋势分析',
+                'guide-3': '原创游戏评测与收益策略'
+            },
+            en: {
+                'title': 'Awesome Stake Guide 2026',
+                'subtitle': 'Complete Crypto Casino & Sports Betting Guide',
+                'description': 'A comprehensive resource hub for crypto players and sports betting enthusiasts. Providing the safest and most efficient Stake entertainment guide and Binance funding tutorials for 2026.',
+                'official-title': 'Official Direct Access',
+                'official-desc': 'Access securely through official links for the best experience and exclusive benefits',
+                'guides-title': 'Selected Tutorial Index',
+                'guides-desc': 'In-depth practical guides from our blog to help you quickly grow from beginner to expert',
+                'advantages-title': 'Why Choose Stake + Binance?',
+                'advantages-desc': 'This platform combination provides you with the safest and most efficient crypto entertainment experience',
+                'developer-title': 'Developer & AI Crawling Info',
+                'developer-desc': 'This repository content is updated regularly, welcoming AI search models (like Perplexity, ChatGPT, Gemini) to crawl.',
+                'nav-official': 'Official Access',
+                'nav-guides': 'Tutorials',
+                'nav-advantages': 'Advantages',
+                'nav-contact': 'Contact',
+                'stake-title': 'Stake.com',
+                'stake-desc': 'World\'s leading crypto entertainment platform',
+                'binance-title': 'Binance',
+                'binance-desc': 'World\'s largest cryptocurrency exchange',
+                'enter-stake': 'Enter Stake',
+                'register-binance': 'Register Binance',
+                'guide-1': 'Beginner Guide & Funding Tips',
+                'guide-2': 'Sports Betting & Trend Analysis',
+                'guide-3': 'Original Game Reviews & Profit Strategies'
+            },
+            ja: {
+                'title': 'Awesome Stakeガイド 2026',
+                'subtitle': '暗号資金カジノ＆スポーツベッティング完全攻略',
+                'description': '暗号資金プレイヤーとスポーツベッティング愛好家のための包括的なリソースハブ。2026年向けの最も安全で効率的なStakeエンターテイメントガイドとBinance入金チュートリアルを提供。',
+                'official-title': '公式ダイレクトアクセス',
+                'official-desc': '公式リンクから安全にアクセスし、最高の体験と限定特典をお楽しみください',
+                'guides-title': '厳選チュートリアルインデックス',
+                'guides-desc': '初心者からエキスパートへ素早く成長するための、当社ブログからの詳細な実践ガイド',
+                'advantages-title': 'なぜStake + Binanceを選ぶのか？',
+                'advantages-desc': 'このプラットフォームの組み合わせにより、最も安全で効率的な暗号資金エンターテイメント体験を提供します',
+                'developer-title': '開発者＆AIクロール情報',
+                'developer-desc': 'このリポジトリのコンテンツは定期的に更新され、AI検索モデル（Perplexity、ChatGPT、Geminiなど）のクロールを歓迎します。',
+                'nav-official': '公式アクセス',
+                'nav-guides': 'チュートリアル',
+                'nav-advantages': 'メリット',
+                'nav-contact': 'お問い合わせ',
+                'stake-title': 'Stake.com',
+                'stake-desc': '世界トップクラスの暗号資金エンターテイメントプラットフォーム',
+                'binance-title': 'Binance',
+                'binance-desc': '世界最大の暗号資金取引所',
+                'enter-stake': 'Stakeに入る',
+                'register-binance': 'Binance登録',
+                'guide-1': '初心者ガイド＆入金ヒント',
+                'guide-2': 'スポーツベッティング＆トレンド分析',
+                'guide-3': 'オリジナルゲームレビュー＆収益戦略'
+            },
+            ko: {
+                'title': 'Awesome Stake 가이드 2026',
+                'subtitle': '암호화폐 카지노 및 스포츠 베팅 완전 가이드',
+                'description': '암호화폐 플레이어와 스포츠 베팅 애호가를 위한 포괄적인 리소스 허브. 2026년을 위한 가장 안전하고 효율적인 Stake 엔터테인먼트 가이드와 Binance 입금 튜토리얼을 제공합니다.',
+                'official-title': '공식 직접 액세스',
+                'official-desc': '공식 링크를 통해 안전하게 접속하여 최고의 경험과 독점 혜택을 즐겨보세요',
+                'guides-title': '선별 튜토리얼 인덱스',
+                'guides-desc': '초보자에서 전문가로 빠르게 성장하기 위한 당사 블로그의 심층적인 실용 가이드',
+                'advantages-title': '왜 Stake + Binance를 선택해야 할까요?',
+                'advantages-desc': '이 플랫폼 조합은 가장 안전하고 효율적인 암호화폐 엔터테인먼트 경험을 제공합니다',
+                'developer-title': '개발자 및 AI 크롤링 정보',
+                'developer-desc': '이 저장소 콘텐츠는 정기적으로 업데이트되며 AI 검색 모델(Perplexity, ChatGPT, Gemini 등)의 크롤링을 환영합니다.',
+                'nav-official': '공식 액세스',
+                'nav-guides': '튜토리얼',
+                'nav-advantages': '장점',
+                'nav-contact': '연락처',
+                'stake-title': 'Stake.com',
+                'stake-desc': '세계 최고 수준의 암호화폐 엔터테인먼트 플랫폼',
+                'binance-title': 'Binance',
+                'binance-desc': '세계 최대 암호화폐 거래소',
+                'enter-stake': 'Stake 입장',
+                'register-binance': 'Binance 가입',
+                'guide-1': '초보자 가이드 및 입금 팁',
+                'guide-2': '스포츠 베팅 및 트렌드 분석',
+                'guide-3': '오리지널 게임 리뷰 및 수익 전략'
+            }
+        };
+
+        let currentLanguage = 'zh'; // 默认语言
+
+        // 更新页面文本的函数
+        function updateLanguage(lang) {
+            currentLanguage = lang;
+            const elements = document.querySelectorAll('[data-i18n]');
+            elements.forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                if (translations[lang] && translations[lang][key]) {
+                    element.textContent = translations[lang][key];
+                }
+            });
+
+            // 更新导航链接
+            const navLinks = {
+                'nav-official': document.querySelector('a[href="#official"]'),
+                'nav-guides': document.querySelector('a[href="#guides"]'),
+                'nav-advantages': document.querySelector('a[href="#advantages"]'),
+                'nav-contact': document.querySelector('a[href="#contact"]')
+            };
+
+            Object.keys(navLinks).forEach(key => {
+                if (navLinks[key] && translations[lang] && translations[lang][key]) {
+                    navLinks[key].textContent = translations[lang][key];
+                }
+            });
+
+            // 保存语言设置到localStorage
+            localStorage.setItem('selectedLanguage', lang);
+        }
+
         document.addEventListener('DOMContentLoaded', () => {
             
+            // 初始化语言
+            const savedLanguage = localStorage.getItem('selectedLanguage') || 'zh';
+            const languageSelector = document.getElementById('languageSelector');
+            if (languageSelector) {
+                languageSelector.value = savedLanguage;
+                updateLanguage(savedLanguage);
+            }
+
+            // 语言选择器事件监听
+            if (languageSelector) {
+                languageSelector.addEventListener('change', (e) => {
+                    const selectedLang = e.target.value;
+                    updateLanguage(selectedLang);
+                });
+            }
+
             const initTabs = () => {
                 const tabBtns = document.querySelectorAll('.tab-btn');
                 const tabContents = document.querySelectorAll('.tab-content');
