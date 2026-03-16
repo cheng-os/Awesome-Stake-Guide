@@ -3,15 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Awesome Stake Guide 2026 | 专业加密博彩指南</title>
+    <title>Awesome Stake Guide 2026 | 加密货币娱乐与体育博彩官方 Wiki</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
-            --primary-color: #2ea44f;
-            --stake-blue: #0f212e;
-            --bg-light: #f6f8fa;
-            --sidebar-width: 280px;
+            --sidebar-bg: #f6f8fa;
+            --border-color: #d0d7de;
+            --link-blue: #0969da;
+            --stake-dark: #0f212e;
             --text-main: #24292f;
+            --success-green: #2ea44f;
+            --binance-gold: #f3ba2f;
         }
 
         body {
@@ -19,207 +21,209 @@
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
             color: var(--text-main);
             display: flex;
-            background-color: #fff;
+            min-height: 100vh;
         }
 
-        /* 侧边栏样式 */
+        /* 侧边栏 */
         #sidebar {
-            width: var(--sidebar-width);
-            height: 100vh;
-            background: var(--bg-light);
-            border-right: 1px solid #d0d7de;
+            width: 280px;
+            background: var(--sidebar-bg);
+            border-right: 1px solid var(--border-color);
             position: fixed;
-            padding: 24px;
-            box-sizing: border-box;
+            top: 0; bottom: 0;
+            padding: 30px 20px;
             overflow-y: auto;
+            z-index: 100;
         }
 
-        #sidebar h2 { font-size: 16px; color: #57606a; margin-top: 24px; text-transform: uppercase; }
-        #sidebar ul { list-style: none; padding: 0; }
-        #sidebar li { margin: 8px 0; }
-        #sidebar a { text-decoration: none; color: #0969da; font-size: 14px; }
-        #sidebar a:hover { text-decoration: underline; }
-
-        /* 主体内容样式 */
-        #content {
-            margin-left: var(--sidebar-width);
-            padding: 48px 64px;
-            max-width: 900px;
-            line-height: 1.6;
-        }
-
-        .hero-card {
-            background: var(--stake-blue);
-            color: white;
-            padding: 32px;
-            border-radius: 12px;
-            margin-bottom: 40px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
-
-        .hero-card h1 { margin: 0 0 16px 0; font-size: 32px; color: #fff; }
+        .logo { font-size: 20px; font-weight: bold; margin-bottom: 30px; display: flex; align-items: center; gap: 10px; color: var(--stake-dark); }
         
-        .cta-buttons { display: flex; gap: 16px; margin-top: 20px; }
+        .nav-group { margin-bottom: 25px; }
+        .nav-group h3 { font-size: 12px; color: #57606a; text-transform: uppercase; margin-bottom: 10px; letter-spacing: 0.5px; }
+        .nav-group ul { list-style: none; padding: 0; margin: 0; }
+        .nav-group li { margin-bottom: 8px; }
+        .nav-group a { text-decoration: none; color: var(--text-main); font-size: 14px; display: block; padding: 4px 0; }
+        .nav-group a:hover { color: var(--link-blue); }
+
+        /* 主内容区 */
+        #main {
+            margin-left: 280px;
+            flex: 1;
+            padding: 40px 60px;
+            max-width: 900px;
+        }
+
+        /* 顶部大卡片 */
+        .hero {
+            background: var(--stake-dark);
+            border-radius: 12px;
+            padding: 40px;
+            color: white;
+            margin-bottom: 50px;
+        }
+        .hero h1 { margin: 0 0 15px 0; font-size: 32px; }
+        .hero p { color: #adb5bd; font-size: 16px; margin-bottom: 25px; }
+        
+        .cta-box { display: flex; gap: 15px; flex-wrap: wrap; }
         .btn {
-            padding: 12px 24px;
+            padding: 12px 25px;
             border-radius: 6px;
             text-decoration: none;
-            font-weight: 600;
-            display: flex;
+            font-weight: bold;
+            display: inline-flex;
             align-items: center;
-            gap: 8px;
-            transition: opacity 0.2s;
+            gap: 10px;
+            transition: transform 0.2s;
         }
-        .btn-stake { background: #2ea44f; color: white; }
-        .btn-binance { background: #f3ba2f; color: #000; }
-        .btn:hover { opacity: 0.9; }
+        .btn:active { transform: scale(0.98); }
+        .btn-stake { background: var(--success-green); color: white; }
+        .btn-binance { background: var(--binance-gold); color: black; }
 
-        .section { margin-bottom: 40px; }
-        .section h2 { border-bottom: 1px solid #d0d7de; padding-bottom: 8px; margin-top: 48px; }
+        /* 文档章节 */
+        .section { margin-bottom: 60px; scroll-margin-top: 40px; }
+        .section h2 { font-size: 24px; border-bottom: 1px solid var(--border-color); padding-bottom: 10px; margin-bottom: 25px; }
 
-        .guide-item {
-            padding: 16px;
-            border: 1px solid #d0d7de;
-            border-radius: 6px;
-            margin-bottom: 12px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: background 0.2s;
+        .doc-card {
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 15px;
+            transition: box-shadow 0.2s, border-color 0.2s;
+            display: block;
+            text-decoration: none;
+            color: inherit;
         }
-        .guide-item:hover { background: var(--bg-light); }
-        .guide-item .title { font-weight: 600; color: #0969da; }
-        .guide-item .desc { font-size: 13px; color: #57606a; }
+        .doc-card:hover { border-color: var(--link-blue); box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+        .doc-card h4 { margin: 0 0 8px 0; color: var(--link-blue); font-size: 18px; }
+        .doc-card p { margin: 0; font-size: 14px; color: #57606a; line-height: 1.5; }
+        .tag { font-size: 11px; background: #ddf4ff; color: #0969da; padding: 2px 8px; border-radius: 10px; font-weight: bold; margin-bottom: 10px; display: inline-block; }
 
-        .badge {
-            background: #ddf4ff;
-            color: #0969da;
-            padding: 2px 8px;
-            border-radius: 12px;
-            font-size: 12px;
-            font-weight: 600;
-        }
-
-        /* 响应式 */
-        @media (max-width: 768px) {
+        /* 响应式适配 */
+        @media (max-width: 900px) {
             #sidebar { display: none; }
-            #content { margin-left: 0; padding: 24px; }
-            .cta-buttons { flex-direction: column; }
+            #main { margin-left: 0; padding: 20px; }
+            .hero { padding: 25px; }
         }
     </style>
 </head>
 <body>
 
     <nav id="sidebar">
-        <div style="font-weight: bold; font-size: 20px; margin-bottom: 30px;">
-            <i class="fas fa-book-open"></i> Stake Wiki
-        </div>
+        <div class="logo"><i class="fa-solid fa-layer-group"></i> Stake Wiki 2026</div>
         
-        <h2>新手入门</h2>
-        <ul>
-            <li><a href="#getting-started">快速开始指南</a></li>
-            <li><a href="#deposit">入金教程 (USDT)</a></li>
-            <li><a href="#safety">安全与验证 (KYC)</a></li>
-        </ul>
+        <div class="nav-group">
+            <h3>🚀 快速上手</h3>
+            <ul>
+                <li><a href="#intro">入门与避坑</a></li>
+                <li><a href="#security">安全与 KYC</a></li>
+            </ul>
+        </div>
 
-        <h2>进阶策略</h2>
-        <ul>
-            <li><a href="#sports">体育博彩大数据</a></li>
-            <li><a href="#originals">原创游戏技巧</a></li>
-            <li><a href="#vip">VIP 利润最大化</a></li>
-        </ul>
+        <div class="nav-group">
+            <h3>💰 资金管理</h3>
+            <ul>
+                <li><a href="#deposit">交易所充值教程</a></li>
+                <li><a href="#strategy">低风险套利策略</a></li>
+            </ul>
+        </div>
 
-        <h2>帮助中心</h2>
-        <ul>
-            <li><a href="https://chengx23.blogspot.com/" target="_blank">SEO 博客主页</a></li>
-            <li><a href="#faq">常见问题 FAQ</a></li>
-        </ul>
+        <div class="nav-group">
+            <h3>🏆 赛事与游戏</h3>
+            <ul>
+                <li><a href="#sports">体育博彩指南</a></li>
+                <li><a href="#games">原创游戏评测</a></li>
+                <li><a href="#vip">VIP 奖励机制</a></li>
+            </ul>
+        </div>
+
+        <div style="margin-top: 50px; font-size: 12px; color: #888;">
+            更新于: 2026年3月
+        </div>
     </nav>
 
-    <main id="content">
-        <section class="hero-card">
-            <h1>Awesome Stake Guide 2026</h1>
-            <p>欢迎查阅全球最权威的加密货币娱乐实战文档。我们通过数据和安全指南，带你从零开始玩转 Stake。</p>
-            <div class="cta-buttons">
-                <a href="https://stake.com/?c=hlw" class="btn btn-stake">
-                    <i class="fas fa-external-link-alt"></i> 进入 Stake 官方入口
-                </a>
-                <a href="https://www.bsmkweb.cc/register?ref=CHENGX" class="btn btn-binance">
-                    <i class="fas fa-wallet"></i> 注册币安 (Binance) 买 U
-                </a>
+    <main id="main">
+        <section class="hero">
+            <h1>Awesome Stake Guide</h1>
+            <p>2026 顶级加密货币娱乐全攻略，涵盖从币安入金到 Stake 高阶策略的每一个细节。</p>
+            <div class="cta-box">
+                <a href="https://stake.com/?c=hlw" class="btn btn-stake"><i class="fa-solid fa-rocket"></i> 进入 Stake 官方入口</a>
+                <a href="https://www.bsmkweb.cc/register?ref=CHENGX" class="btn btn-binance"><i class="fa-solid fa-wallet"></i> 注册币安 (Binance) 买 U</a>
             </div>
         </section>
 
-        <article class="section" id="getting-started">
-            <h2>新手入门文档</h2>
-            
-            <div class="guide-item">
-                <div>
-                    <div class="title"><a href="https://chengx23.blogspot.com/2026/03/stake-2026_15.html" target="_blank">2026 小白避坑与入门全流程</a></div>
-                    <div class="desc">专为零基础玩家准备的加密博彩防丢金手册。</div>
-                </div>
-                <span class="badge">入门必读</span>
-            </div>
+        <section class="section" id="intro">
+            <h2>新手入门与避坑</h2>
+            <a href="https://chengx23.blogspot.com/2026/03/stake-2026_15.html" class="doc-card" target="_blank">
+                <span class="tag">必读</span>
+                <h4>2026 小白避坑指南：从注册币安到玩转 Stake</h4>
+                <p>详细讲解从零开始的资金闭环，教你如何安全起步，远离诈骗风险。</p>
+            </a>
+            <a href="https://chengx23.blogspot.com/2026/03/stake-crypto-casino2026.html" class="doc-card" target="_blank">
+                <span class="tag">科普</span>
+                <h4>加密货币博彩为什么是未来？隐私与速度解析</h4>
+                <p>深度剖析加密平台相对于传统博彩平台的碾压级优势。</p>
+            </a>
+        </section>
 
-            <div class="guide-item">
-                <div>
-                    <div class="title"><a href="https://chengx23.blogspot.com/2026/03/stake-stake-2026.html" target="_blank">Stake KYC 等级验证详解</a></div>
-                    <div class="desc">如何通过身份认证，保障大额提现顺畅。</div>
-                </div>
-                <span class="badge">安全</span>
-            </div>
-        </article>
+        <section class="section" id="security">
+            <h2>账户安全与认证</h2>
+            <a href="https://chengx23.blogspot.com/2026/03/stake-stake-2026.html" class="doc-card" target="_blank">
+                <span class="tag">安全</span>
+                <h4>Stake KYC 1-4 级认证全攻略：保障提现顺畅</h4>
+                <p>手把手教你如何通过身份验证，确保大额提现秒到账，不被锁定。</p>
+            </a>
+            <a href="https://chengx23.blogspot.com/2026/03/stake-casino-review-2026stake.html" class="doc-card" target="_blank">
+                <span class="tag">评测</span>
+                <h4>Stake Casino 2026 综合评测：安全与资质深度调查</h4>
+                <p>官方背书、牌照查询及全球玩家口碑深度解析。</p>
+            </a>
+        </section>
 
-        <article class="section" id="deposit">
-            <h2>资金管理与充提</h2>
-            
-            <div class="guide-item">
-                <div>
-                    <div class="title"><a href="https://chengx23.blogspot.com/2026/03/2026-stake_18.html" target="_blank">币安 (Binance) 充值 Stake 实操</a></div>
-                    <div class="desc">手把手教你如何安全转移 USDT/SOL。</div>
-                </div>
-                <span class="badge">教程</span>
-            </div>
+        <section class="section" id="deposit">
+            <h2>资金管理 (Deposit)</h2>
+            <a href="https://chengx23.blogspot.com/2026/03/2026-stake_18.html" class="doc-card" target="_blank">
+                <span class="tag">核心教程</span>
+                <h4>2026 币安买 U 充值 Stake 完整实操流程</h4>
+                <p>最稳健的入金方式，包含 TRC20/SOL 网络选择与提币教学。</p>
+            </a>
+            <a href="https://chengx23.blogspot.com/2026/03/stake-stake-casino-2026_62.html" class="doc-card" target="_blank">
+                <span class="tag">策略</span>
+                <h4>USDT 低风险套利与流水策略：稳健赚取 VIP 红利</h4>
+                <p>如何利用稳定币对冲风险，利用流水累积平台长期收益。</p>
+            </a>
+        </section>
 
-            <div class="guide-item">
-                <div>
-                    <div class="title"><a href="https://chengx23.blogspot.com/2026/03/stake-stake-casino-2026_62.html" target="_blank">USDT 低风险套利与流水策略</a></div>
-                    <div class="desc">适合稳健投资者的低磨损刷 VIP 方案。</div>
-                </div>
-                <span class="badge">进阶</span>
-            </div>
-        </article>
+        <section class="section" id="sports">
+            <h2>体育博彩策略</h2>
+            <a href="https://chengx23.blogspot.com/2026/03/stake-stake-crypto-casino-sports.html" class="doc-card" target="_blank">
+                <span class="tag">2026 世界杯</span>
+                <h4>2026 世界杯/欧冠体育投注指南：USDT/SOL 实战</h4>
+                <p>针对全球顶级赛事的投注技巧与加密货币优势利用。</p>
+            </a>
+            <a href="https://chengx23.blogspot.com/2026/03/bitcoin-stake-casino-2026.html" class="doc-card" target="_blank">
+                <span class="tag">高阶分析</span>
+                <h4>大数据博彩进阶：利用 xG 数据在 Stake 提升胜率</h4>
+                <p>职业玩家如何通过预期进球数据模型寻找盘口偏差。</p>
+            </a>
+        </section>
 
-        <article class="section" id="sports">
-            <h2>体育博彩与游戏评测</h2>
+        <section class="section" id="games">
+            <h2>原创游戏与 VIP 福利</h2>
+            <a href="https://chengx23.blogspot.com/2026/03/stake-casino-2026_13.html" class="doc-card" target="_blank">
+                <span class="tag">原创游戏</span>
+                <h4>Stake Originals 深度评测：Crash、Plinko 玩法策略</h4>
+                <p>体验 99% RTP 的公平算法，实测高倍率捕捉方案。</p>
+            </a>
+            <a href="https://chengx23.blogspot.com/2026/03/stake-vip-2026.html" class="doc-card" target="_blank">
+                <span class="tag">长期收益</span>
+                <h4>Stake VIP 等级全解析：Rakeback 返水获取被动收入</h4>
+                <p>如何最快速度升到青铜/白银/黄金，解锁每日/周/月奖金。</p>
+            </a>
+        </section>
 
-            <div class="guide-item">
-                <div>
-                    <div class="title"><a href="https://chengx23.blogspot.com/2026/03/stake-stake-crypto-casino-sports.html" target="_blank">2026 世界杯/欧冠体育投注指南</a></div>
-                    <div class="desc">利用加密货币享受极速滚球体验。</div>
-                </div>
-                <span class="badge">体育</span>
-            </div>
-
-            <div class="guide-item">
-                <div>
-                    <div class="title"><a href="https://chengx23.blogspot.com/2026/03/stake-casino-2026_13.html" target="_blank">Stake Originals 原创游戏深度评测</a></div>
-                    <div class="desc">Crash、Plinko、Mines 玩法与高倍率策略。</div>
-                </div>
-                <span class="badge">评测</span>
-            </div>
-
-            <div class="guide-item">
-                <div>
-                    <div class="title"><a href="https://chengx23.blogspot.com/2026/03/stake-vip-2026.html" target="_blank">Stake VIP 等级全解析</a></div>
-                    <div class="desc">获取 Rakeback 返水和月奖金的正确姿势。</div>
-                </div>
-                <span class="badge">福利</span>
-            </div>
-        </article>
-
-        <footer style="margin-top: 80px; border-top: 1px solid #eee; padding-top: 20px; font-size: 12px; color: #57606a;">
-            <p>© 2026 Awesome Stake Guide. 本页面由 GitHub Pages 托管。请遵守当地法律，理性娱乐。</p>
+        <footer style="margin-top: 100px; padding-top: 20px; border-top: 1px solid #eee; color: #888; font-size: 13px;">
+            <p>© 2026 Awesome Stake Guide. 本页面由 GitHub Pages 强力驱动。</p>
+            <p>免责声明：博彩具有风险，请务必在自身经济承受范围内参与，理性娱乐，严控风险。</p>
         </footer>
     </main>
 
