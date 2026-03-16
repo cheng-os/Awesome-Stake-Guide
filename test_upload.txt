@@ -1,0 +1,4 @@
+# 测试文件
+这是GitHub自动上传工具的测试文件
+生成时间: GitHubAutoUploader
+测试内容: Hello, GitHub!
