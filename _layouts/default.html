@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO优化Meta标签 -->
+    <title>{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}</title>
+    
+    <meta name="description" content="{% if page.description %}{{ page.description | escape }}{% else %}{{ site.description | escape }}{% endif %}">
+    
+    <meta name="keywords" content="{% if page.keywords %}{{ page.keywords | escape }}{% else %}{{ site.seo.keywords | join: ', ' }}{% endif %}">
+    
+    <meta name="author" content="{{ site.seo.author }}">
+    <meta name="robots" content="{{ site.seo.robots }}">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="{{ site.social.og.type }}">
+    <meta property="og:url" content="{{ site.social.og.url }}">
+    <meta property="og:title" content="{{ site.social.og.title }}">
+    <meta property="og:description" content="{{ site.social.og.description }}">
+    <meta property="og:image" content="{{ site.social.og.image }}">
+    <meta property="og:locale" content="{{ site.social.og.locale }}">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="{{ site.social.twitter.card }}">
+    <meta property="twitter:url" content="{{ site.social.og.url }}">
+    <meta property="twitter:title" content="{{ site.social.og.title }}">
+    <meta property="twitter:description" content="{{ site.social.og.description }}">
+    <meta property="twitter:image" content="{{ site.social.og.image }}">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="{{ site.url }}{{ page.url }}">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    
+    <!-- CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- 自定义CSS -->
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        .promo-link {
+            background: linear-gradient(45deg, #f093fb 0%, #f5576c 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
+    
+    <!-- 结构化数据 -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "{{ site.title }}",
+        "description": "{{ site.description }}",
+        "url": "{{ site.url }}",
+        "author": {
+            "@type": "Person",
+            "name": "{{ site.seo.author }}"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "{{ site.title }}",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "{{ site.url }}/images/logo.png"
+            }
+        },
+        "mainEntity": {
+            "@type": "Article",
+            "headline": "{{ page.title | default: site.title }}",
+            "description": "{{ page.description | default: site.description }}",
+            "author": {
+                "@type": "Person",
+                "name": "{{ site.seo.author }}"
+            },
+            "publisher": {
+                "@type": "Organization",
+                "name": "{{ site.title }}"
+            },
+            "datePublished": "{{ page.date | default: site.time | date: '%Y-%m-%d' }}",
+            "dateModified": "{{ page.date | default: site.time | date: '%Y-%m-%d' }}"
+        }
+    }
+    </script>
+</head>
+<body class="bg-gray-50">
+    <!-- 导航栏 -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <a href="{{ site.url }}" class="flex items-center">
+                        <i class="fas fa-dice text-2xl text-green-600 mr-2"></i>
+                        <span class="font-bold text-xl text-gray-800">{{ site.title }}</span>
+                    </a>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <a href="{{ site.promo_links.stake.url }}" class="text-green-600 hover:text-green-800 font-semibold">
+                        <i class="fas fa-star mr-1"></i>Stake推广
+                    </a>
+                    <a href="{{ site.promo_links.binance.url }}" class="text-yellow-600 hover:text-yellow-800 font-semibold">
+                        <i class="fas fa-coins mr-1"></i>币安邀请
+                    </a>
+                    <a href="{{ site.promo_links.exness.url }}" class="text-blue-600 hover:text-blue-800 font-semibold">
+                        <i class="fas fa-chart-line mr-1"></i>Exness返佣
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主要内容 -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        {{ content }}
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="bg-gray-800 text-white mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">🎯 推广链接</h3>
+                    <ul class="space-y-2">
+                        <li><a href="{{ site.promo_links.stake.url }}" class="text-green-400 hover:text-green-300">Stake推广链接</a></li>
+                        <li><a href="{{ site.promo_links.binance.url }}" class="text-yellow-400 hover:text-yellow-300">币安邀请链接</a></li>
+                        <li><a href="{{ site.promo_links.exness.url }}" class="text-blue-400 hover:text-blue-300">Exness返佣链接</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">📚 资源导航</h3>
+                    <ul class="space-y-2">
+                        <li><a href="/stake-guide" class="text-gray-400 hover:text-white">Stake攻略</a></li>
+                        <li><a href="/binance-tutorial" class="text-gray-400 hover:text-white">币安教程</a></li>
+                        <li><a href="/exness-review" class="text-gray-400 hover:text-white">Exness评测</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">🔗 联系方式</h3>
+                    <p class="text-gray-400">如有问题或合作意向，欢迎联系</p>
+                    <div class="flex space-x-4 mt-4">
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-telegram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center">
+                <p class="text-gray-400">© 2026 {{ site.title }}. 所有权利保留。</p>
+                <p class="text-gray-500 text-sm mt-2">本站包含推广链接，通过这些链接注册可获得专属奖励。</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        // 平滑滚动
+        $(document).ready(function() {
+            $('a[href^="#"]').on('click', function(e) {
+                e.preventDefault();
+                var target = $(this.hash);
+                if (target.length) {
+                    $('html, body').animate({
+                        scrollTop: target.offset().top
+                    }, 800);
+                }
+            });
+        });
+        
+        // 统计点击
+        document.addEventListener('DOMContentLoaded', function() {
+            const promoLinks = document.querySelectorAll('a[href*="stake.com"], a[href*="binance.com"], a[href*="exness.com"]');
+            promoLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    // 这里可以添加统计代码
+                    console.log('推广链接被点击:', this.href);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
