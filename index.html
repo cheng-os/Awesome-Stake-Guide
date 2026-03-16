@@ -18,171 +18,88 @@
             --nav-height: 64px;
         }
 
-        body {
-            margin: 0;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            color: var(--text-main);
-            background-color: #fff;
+        body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; color: var(--text-main); background-color: #fff; }
+
+        /* --- 核心语言控制逻辑 --- */
+        [data-lang-content] { display: none !important; } /* 默认全部隐藏 */
+
+        /* 当 body 为对应语种时，显示该语种内容 */
+        body[data-current-lang="zh"] [data-lang-content="zh"],
+        body[data-current-lang="en"] [data-lang-content="en"],
+        body[data-current-lang="ko"] [data-lang-content="ko"],
+        body[data-current-lang="ja"] [data-lang-content="ja"] {
+            display: block !important;
         }
 
-        /* 顶部导航栏 */
-        header {
-            height: var(--nav-height);
-            background: rgba(15, 33, 46, 0.95);
-            backdrop-filter: blur(10px);
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0 40px;
-            position: fixed;
-            top: 0; left: 0; right: 0;
-            z-index: 1000;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
+        /* 行内元素显示逻辑（如 span, a） */
+        body[data-current-lang="zh"] span[data-lang-content="zh"],
+        body[data-current-lang="en"] span[data-lang-content="en"],
+        body[data-current-lang="ko"] span[data-lang-content="ko"],
+        body[data-current-lang="ja"] span[data-lang-content="ja"],
+        body[data-current-lang="zh"] a[data-lang-content="zh"],
+        body[data-current-lang="en"] a[data-lang-content="en"],
+        body[data-current-lang="ko"] a[data-lang-content="ko"],
+        body[data-current-lang="ja"] a[data-lang-content="ja"] {
+            display: inline-block !important;
         }
 
-        .header-logo { font-size: 20px; font-weight: bold; display: flex; align-items: center; gap: 10px; }
+        /* --- UI 样式 --- */
+        header { height: var(--nav-height); background: rgba(15, 33, 46, 0.98); backdrop-filter: blur(10px); color: white; display: flex; align-items: center; justify-content: space-between; padding: 0 40px; position: fixed; top: 0; left: 0; right: 0; z-index: 1000; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .header-logo { font-size: 20px; font-weight: bold; display: flex; align-items: center; gap: 10px; cursor: pointer; }
         
-        /* 语言选择器 */
-        .lang-switcher { position: relative; display: inline-block; }
-        .lang-btn {
-            background: rgba(255,255,255,0.1);
-            color: white;
-            border: 1px solid rgba(255,255,255,0.2);
-            padding: 8px 16px;
-            border-radius: 20px;
-            cursor: pointer;
-            font-size: 14px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .lang-btn:hover { background: rgba(255,255,255,0.2); }
-        .lang-dropdown {
-            position: absolute;
-            right: 0;
-            top: 45px;
-            background: white;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-            border-radius: 8px;
-            display: none;
-            overflow: hidden;
-            width: 120px;
-        }
-        .lang-dropdown a {
-            display: block;
-            padding: 10px 20px;
-            color: #333;
-            text-decoration: none;
-            font-size: 14px;
-        }
-        .lang-dropdown a:hover { background: var(--sidebar-bg); }
+        .lang-switcher { position: relative; }
+        .lang-btn { background: rgba(255,255,255,0.1); color: white; border: 1px solid rgba(255,255,255,0.2); padding: 8px 16px; border-radius: 20px; cursor: pointer; font-size: 14px; display: flex; align-items: center; gap: 8px; }
+        .lang-dropdown { position: absolute; right: 0; top: 45px; background: white; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border-radius: 8px; display: none; overflow: hidden; width: 140px; }
+        .lang-dropdown a { display: block; padding: 12px 20px; color: #333; text-decoration: none; font-size: 14px; }
+        .lang-dropdown a:hover { background: #f1f3f5; }
 
-        /* 布局 */
         #container { display: flex; margin-top: var(--nav-height); }
+        #sidebar { width: 260px; background: var(--sidebar-bg); border-right: 1px solid var(--border-color); position: fixed; top: var(--nav-height); bottom: 0; padding: 30px 20px; overflow-y: auto; }
+        #main { margin-left: 260px; flex: 1; padding: 40px 60px; max-width: 900px; }
 
-        /* 侧边栏 */
-        #sidebar {
-            width: 280px;
-            background: var(--sidebar-bg);
-            border-right: 1px solid var(--border-color);
-            position: fixed;
-            top: var(--nav-height); bottom: 0;
-            padding: 40px 20px;
-            overflow-y: auto;
-        }
-
-        .nav-group { margin-bottom: 30px; }
-        .nav-group h3 { font-size: 11px; color: #6e7781; text-transform: uppercase; margin-bottom: 12px; letter-spacing: 1px; }
+        .nav-group { margin-bottom: 25px; }
+        .nav-group h3 { font-size: 11px; color: #6e7781; text-transform: uppercase; margin-bottom: 10px; letter-spacing: 1px; }
         .nav-group ul { list-style: none; padding: 0; margin: 0; }
-        .nav-group a { text-decoration: none; color: var(--text-main); font-size: 14px; display: block; padding: 6px 0; border-radius: 4px; }
+        .nav-group a { text-decoration: none; color: var(--text-main); font-size: 14px; display: block; padding: 6px 0; }
         .nav-group a:hover { color: var(--link-blue); }
 
-        /* 内容区 */
-        #main { margin-left: 280px; flex: 1; padding: 60px 80px; max-width: 900px; }
-
-        /* Hero 卡片 */
-        .hero {
-            background: linear-gradient(135deg, var(--stake-dark) 0%, var(--stake-light) 100%);
-            border-radius: 16px;
-            padding: 60px;
-            color: white;
-            margin-bottom: 60px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-        }
-        .hero h1 { font-size: 42px; margin: 0 0 20px 0; letter-spacing: -1px; }
-        .hero p { font-size: 18px; color: #adb5bd; margin-bottom: 35px; max-width: 600px; }
-        
-        .cta-box { display: flex; gap: 20px; flex-wrap: wrap; }
-        .btn {
-            padding: 14px 30px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 700;
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            transition: all 0.3s;
-        }
-        .btn:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+        .hero { background: linear-gradient(135deg, var(--stake-dark) 0%, var(--stake-light) 100%); border-radius: 16px; padding: 40px; color: white; margin-bottom: 40px; }
+        .hero h1 { font-size: 32px; margin: 0 0 15px 0; }
+        .hero p { color: #adb5bd; font-size: 16px; margin-bottom: 25px; }
+        .cta-box { display: flex; gap: 15px; }
+        .btn { padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: bold; display: flex; align-items: center; gap: 10px; }
         .btn-stake { background: var(--success-green); color: white; }
         .btn-binance { background: var(--binance-gold); color: black; }
 
-        /* 章节 */
-        .section { margin-bottom: 80px; scroll-margin-top: 100px; }
-        .section h2 { font-size: 28px; font-weight: 800; margin-bottom: 30px; display: flex; align-items: center; gap: 15px; }
-        .section h2::after { content: ""; flex: 1; height: 1px; background: var(--border-color); }
+        .section { margin-bottom: 50px; scroll-margin-top: 80px; }
+        .section h2 { font-size: 24px; border-bottom: 1px solid var(--border-color); padding-bottom: 10px; margin-bottom: 20px; }
+        .doc-card { border: 1px solid var(--border-color); border-radius: 12px; padding: 20px; margin-bottom: 15px; display: block; text-decoration: none; color: inherit; transition: 0.2s; }
+        .doc-card:hover { border-color: var(--link-blue); transform: translateX(5px); }
+        .doc-card h4 { margin: 0 0 8px 0; color: var(--link-blue); font-size: 18px; }
+        .doc-card p { margin: 0; font-size: 14px; color: #57606a; }
+        .tag { font-size: 11px; background: #f1f3f5; color: #495057; padding: 2px 8px; border-radius: 5px; font-weight: bold; margin-bottom: 8px; display: inline-block; }
 
-        .doc-card {
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 24px;
-            margin-bottom: 20px;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            display: block;
-            text-decoration: none;
-            color: inherit;
-            background: white;
-        }
-        .doc-card:hover { border-color: var(--link-blue); transform: translateX(8px); box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
-        .doc-card h4 { margin: 0 0 10px 0; color: var(--link-blue); font-size: 18px; }
-        .doc-card p { margin: 0; font-size: 15px; color: #57606a; line-height: 1.6; }
-
-        .tag { font-size: 12px; background: #f1f3f5; color: #495057; padding: 3px 10px; border-radius: 6px; margin-bottom: 12px; display: inline-block; font-weight: 600; }
-
-        /* 响应式 */
-        @media (max-width: 1024px) {
-            #sidebar { display: none; }
-            #main { margin-left: 0; padding: 40px 20px; }
-            header { padding: 0 20px; }
-            .hero h1 { font-size: 32px; }
-        }
-
-        /* 语言显示控制 */
-        [data-lang-content] { display: none; }
-        .lang-active { display: block !important; }
-        .lang-inline-active { display: inline !important; }
+        @media (max-width: 900px) { #sidebar { display: none; } #main { margin-left: 0; padding: 20px; } }
     </style>
 </head>
 <body data-current-lang="zh">
 
     <header>
-        <div class="header-logo">
-            <i class="fa-solid fa-shield-halved"></i>
-            <span>Stake Wiki <span style="color: var(--binance-gold);">2026</span></span>
+        <div class="header-logo" onclick="location.reload()">
+            <i class="fa-solid fa-bolt" style="color: var(--binance-gold);"></i>
+            <span>Stake Wiki 2026</span>
         </div>
-        
         <div class="lang-switcher">
             <button class="lang-btn" onclick="toggleDropdown()">
                 <i class="fa-solid fa-globe"></i>
-                <span id="current-lang-text">简体中文</span>
-                <i class="fa-solid fa-chevron-down" style="font-size: 10px;"></i>
+                <span id="current-lang-name">简体中文</span>
+                <i class="fa-solid fa-chevron-down"></i>
             </button>
             <div class="lang-dropdown" id="lang-dropdown">
-                <a href="javascript:void(0)" onclick="setLang('zh')">简体中文</a>
-                <a href="javascript:void(0)" onclick="setLang('en')">English</a>
-                <a href="javascript:void(0)" onclick="setLang('ko')">한국어</a>
-                <a href="javascript:void(0)" onclick="setLang('ja')">日本語</a>
+                <a href="#" onclick="setLang('zh', '简体中文')">简体中文</a>
+                <a href="#" onclick="setLang('en', 'English')">English</a>
+                <a href="#" onclick="setLang('ko', '한국어')">한국어</a>
+                <a href="#" onclick="setLang('ja', '日本語')">日本語</a>
             </div>
         </div>
     </header>
@@ -190,126 +107,123 @@
     <div id="container">
         <nav id="sidebar">
             <div class="nav-group">
-                <h3 data-lang-content="zh" class="lang-active">🚀 快速上手</h3>
+                <h3 data-lang-content="zh">🚀 快速开始</h3>
                 <h3 data-lang-content="en">🚀 Getting Started</h3>
                 <h3 data-lang-content="ko">🚀 시작하기</h3>
                 <h3 data-lang-content="ja">🚀 スタートガイド</h3>
                 <ul>
-                    <li><a href="#intro" data-lang-content="zh" class="lang-active">入门与避坑</a><a href="#intro" data-lang-content="en">Essentials</a><a href="#intro" data-lang-content="ko">입문 가이드</a><a href="#intro" data-lang-content="ja">ビギナーズガイド</a></li>
-                    <li><a href="#security" data-lang-content="zh" class="lang-active">安全与 KYC</a><a href="#security" data-lang-content="en">Security & KYC</a><a href="#security" data-lang-content="ko">보안 및 KYC</a><a href="#security" data-lang-content="ja">セキュリティとKYC</a></li>
+                    <li>
+                        <a href="#intro" data-lang-content="zh">入门与避坑</a>
+                        <a href="#intro" data-lang-content="en">Essentials</a>
+                        <a href="#intro" data-lang-content="ko">입문 가이드</a>
+                        <a href="#intro" data-lang-content="ja">初心者ガイド</a>
+                    </li>
+                    <li>
+                        <a href="#deposit" data-lang-content="zh">资金充值</a>
+                        <a href="#deposit" data-lang-content="en">Deposit Guide</a>
+                        <a href="#deposit" data-lang-content="ko">입금 안내</a>
+                        <a href="#deposit" data-lang-content="ja">入金ガイド</a>
+                    </li>
                 </ul>
             </div>
-
             <div class="nav-group">
-                <h3 data-lang-content="zh" class="lang-active">💬 社区互动</h3>
-                <h3 data-lang-content="en">💬 Community</h3>
-                <h3 data-lang-content="ko">💬 커뮤니티</h3>
-                <h3 data-lang-content="ja">💬 コミュニティ</h3>
+                <h3 data-lang-content="zh">📈 进阶策略</h3>
+                <h3 data-lang-content="en">📈 Strategies</h3>
+                <h3 data-lang-content="ko">📈 고급 전략</h3>
+                <h3 data-lang-content="ja">📈 高度な戦略</h3>
                 <ul>
-                    <li><a href="#community">Reddit Discussions</a></li>
-                </ul>
-            </div>
-
-            <div class="nav-group">
-                <h3 data-lang-content="zh" class="lang-active">💰 资金管理</h3>
-                <h3 data-lang-content="en">💰 Funds</h3>
-                <h3 data-lang-content="ko">💰 자금 관리</h3>
-                <h3 data-lang-content="ja">💰 資金管理</h3>
-                <ul>
-                    <li><a href="#deposit">Deposit Tutorials</a></li>
-                    <li><a href="#strategy">Arbitrage Strategy</a></li>
+                    <li><a href="#sports">Sports Betting</a></li>
+                    <li><a href="#vip">VIP System</a></li>
                 </ul>
             </div>
         </nav>
 
         <main id="main">
             <section class="hero">
-                <h1 data-lang-content="zh" class="lang-active">Awesome Stake Guide</h1>
-                <h1 data-lang-content="en">Awesome Stake Guide</h1>
-                <h1 data-lang-content="ko">어썸 스테이크 가이드</h1>
-                <h1 data-lang-content="ja">究極のステークガイド</h1>
+                <h1 data-lang-content="zh">Awesome Stake Guide 2026</h1>
+                <h1 data-lang-content="en">Awesome Stake Guide 2026</h1>
+                <h1 data-lang-content="ko">어썸 스테이크 가이드 2026</h1>
+                <h1 data-lang-content="ja">究極のステークガイド 2026</h1>
 
-                <p data-lang-content="zh" class="lang-active">2026 顶级加密货币娱乐全攻略。从币安入金到高阶策略，助您在 Web3 时代稳健获利。</p>
-                <p data-lang-content="en">The definitive 2026 guide for crypto gaming. From Binance deposits to advanced wagering strategies.</p>
-                <p data-lang-content="ko">2026년 최고의 암호화폐 엔터테인먼트 가이드. 바이낸스 입금부터 고급 전략까지 완벽 정리.</p>
-                <p data-lang-content="ja">2026年最新の仮想通貨エンターテインメント攻略。バイナンス入金から高度な戦略まで網羅。</p>
+                <p data-lang-content="zh">全球领先的加密娱乐实战文档。从币安入金到 Stake 高阶策略，助您稳健起步。</p>
+                <p data-lang-content="en">The world's leading crypto gaming wiki. From Binance deposits to advanced Stake strategies.</p>
+                <p data-lang-content="ko">세계 최고의 암호화폐 게임 위키. 바이낸스 입금부터 스테이크 고급 전략까지.</p>
+                <p data-lang-content="ja">世界をリードする仮想通貨ゲームWiki。バイナンス入金からステーク攻略まで。</p>
 
                 <div class="cta-box">
                     <a href="https://stake.com/?c=hlw" class="btn btn-stake">
-                        <i class="fa-solid fa-play"></i>
-                        <span data-lang-content="zh" class="lang-inline-active">立即进入 Stake</span>
+                        <i class="fa-solid fa-play"></i> 
+                        <span data-lang-content="zh">进入 Stake</span>
                         <span data-lang-content="en">Play on Stake</span>
-                        <span data-lang-content="ko">스테이크 시작하기</span>
+                        <span data-lang-content="ko">스테이크 시작</span>
                         <span data-lang-content="ja">ステークで遊ぶ</span>
                     </a>
                     <a href="https://www.bsmkweb.cc/register?ref=CHENGX" class="btn btn-binance">
                         <i class="fa-solid fa-coins"></i>
-                        <span data-lang-content="zh" class="lang-inline-active">在币安买 U</span>
-                        <span data-lang-content="en">Buy Crypto on Binance</span>
-                        <span data-lang-content="ko">바이낸스에서 코인 구매</span>
-                        <span data-lang-content="ja">バイナンスで仮想通貨を購入</span>
+                        <span data-lang-content="zh">币安买 U</span>
+                        <span data-lang-content="en">Buy on Binance</span>
+                        <span data-lang-content="ko">코인 구매</span>
+                        <span data-lang-content="ja">コインを購入</span>
                     </a>
                 </div>
             </section>
 
             <section class="section" id="intro">
-                <h2 data-lang-content="zh" class="lang-active">新手入门与避坑</h2>
+                <h2 data-lang-content="zh">新手入门</h2>
                 <h2 data-lang-content="en">Getting Started</h2>
                 <h2 data-lang-content="ko">입문 가이드</h2>
                 <h2 data-lang-content="ja">スタートガイド</h2>
-                
-                <a href="https://chengx23.blogspot.com/2026/03/stake-2026_15.html" class="doc-card" target="_blank">
-                    <span class="tag">TOP GUIDE</span>
-                    <h4>2026 小白避坑指南：从注册币安到玩转 Stake</h4>
-                    <p>详细讲解从零开始的资金闭环，教你如何安全起步，远离诈骗风险。</p>
+
+                <a href="https://chengx23.blogspot.com/2026/03/stake-2026_15.html" class="doc-card">
+                    <span class="tag">MUST READ</span>
+                    <h4 data-lang-content="zh">2026 小白避坑指南：注册到入金全流程</h4>
+                    <h4 data-lang-content="en">2026 Newbie Guide: From Reg to Deposit</h4>
+                    <h4 data-lang-content="ko">2026 초보자 가이드: 가입부터 입금까지</h4>
+                    <h4 data-lang-content="ja">2026 初心者ガイド：登録から入金まで</h4>
+                    <p data-lang-content="zh">详细讲解资金闭环，确保新手不丢金。</p>
+                    <p data-lang-content="en">Step-by-step to secure your funds.</p>
+                </a>
+
+                <a href="https://chengx23.blogspot.com/2026/03/stake-stake-2026.html" class="doc-card">
+                    <span class="tag">SECURITY</span>
+                    <h4 data-lang-content="zh">Stake KYC 1-4 级认证全攻略</h4>
+                    <h4 data-lang-content="en">Stake KYC Level 1-4 Complete Guide</h4>
+                    <p data-lang-content="zh">如何通过身份认证保障大额提现顺畅。</p>
+                    <p data-lang-content="en">Secure your high-limit withdrawals.</p>
                 </a>
             </section>
 
-            <footer style="margin-top: 100px; padding: 40px 0; border-top: 1px solid #eee; color: #888; font-size: 13px; text-align: center;">
-                <p>© 2026 Awesome Stake Guide. Powered by GitHub Pages.</p>
-                <p>Rational Gaming | Crypto Security | Official Wiki</p>
+            <section class="section" id="deposit">
+                <h2 data-lang-content="zh">资金充提</h2>
+                <h2 data-lang-content="en">Deposits</h2>
+
+                <a href="https://chengx23.blogspot.com/2026/03/2026-stake_18.html" class="doc-card">
+                    <span class="tag">TUTORIAL</span>
+                    <h4 data-lang-content="zh">币安 (Binance) 充值 Stake 实操教程</h4>
+                    <h4 data-lang-content="en">Binance to Stake Deposit Tutorial</h4>
+                    <p data-lang-content="zh">演示 TRC20 与 SOL 网络极速转账。</p>
+                    <p data-lang-content="en">Fast USDT transfers via TRC20/SOL.</p>
+                </a>
+            </section>
+
+            <footer style="margin-top: 80px; padding: 40px 0; border-top: 1px solid #eee; text-align: center; color: #888;">
+                <p>© 2026 Awesome Stake Guide Wiki. Global Support.</p>
             </footer>
         </main>
     </div>
 
     <script>
         function toggleDropdown() {
-            const dropdown = document.getElementById('lang-dropdown');
-            dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+            const d = document.getElementById('lang-dropdown');
+            d.style.display = (d.style.display === 'block') ? 'none' : 'block';
         }
-
-        function setLang(lang) {
-            // 更新当前语言标识
+        function setLang(lang, name) {
             document.body.setAttribute('data-current-lang', lang);
-            
-            // 更新按钮文字
-            const langMap = {
-                'zh': '简体中文',
-                'en': 'English',
-                'ko': '한국어',
-                'ja': '日本語'
-            };
-            document.getElementById('current-lang-text').innerText = langMap[lang];
-
-            // 切换所有带语言标记的内容
-            document.querySelectorAll('[data-lang-content]').forEach(el => {
-                el.classList.remove('lang-active', 'lang-inline-active');
-                if (el.getAttribute('data-lang-content') === lang) {
-                    if (el.tagName === 'SPAN') {
-                        el.classList.add('lang-inline-active');
-                    } else {
-                        el.classList.add('lang-active');
-                    }
-                }
-            });
-
-            // 关闭下拉框
+            document.getElementById('current-lang-name').innerText = name;
             document.getElementById('lang-dropdown').style.display = 'none';
         }
-
-        // 点击外部关闭下拉
-        window.onclick = function(event) {
-            if (!event.target.matches('.lang-btn') && !event.target.parentElement.matches('.lang-btn')) {
+        window.onclick = function(e) {
+            if (!e.target.closest('.lang-switcher')) {
                 document.getElementById('lang-dropdown').style.display = 'none';
             }
         }
